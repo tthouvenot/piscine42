@@ -1,18 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tthouvenot <tthouvenot@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/20 12:13:47 by tthouvenot        #+#    #+#             */
-/*   Updated: 2025/12/20 12:13:48 by tthouvenot       ###   ########.fr       */
+/*   Created: 2025/12/20 19:28:02 by tthouvenot        #+#    #+#             */
+/*   Updated: 2025/12/20 19:33:31 by tthouvenot       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
-int main ()
+void	ft_print_comb(void)
 {
-	int i = 0;
-	return 0;
+	char	a;
+	char	b;
+	char	c;
+	
+	a = '0';
+	while (a <= '7')
+	{
+		b = a + 1;
+		while (b <= '8')
+		{
+			c = b + 1;
+			while (c <= '9')
+			{
+				write(1, &a, 1);
+				write(1, &b, 1);
+				write(1, &c, 1);
+				if (!(a == '7' && b == '8' && c == '9'))
+					write(1, ", ", 2);
+				c++;
+			}
+			b++;
+		}
+		a++;
+	}
 }
+
+/* int	main(void)
+{
+	ft_print_comb();
+	return (0);
+} */
